@@ -408,3 +408,267 @@ public class Main {
 }
 ```
 
+#### 7.删数
+
+有一个数组a[N]顺序存放0~N-1，要求每隔两个数删掉一个数，到末尾时循环至开头继续进行，求最后一个被删掉的数的原始下标位置。以8个数(N=7)为例:｛0，1，2，3，4，5，6，7｝，0->1->2(删除)->3->4->5(删除)->6->7->0(删除),如此循环直到最后一个数被删除。
+
+##### **输入描述:**
+
+```
+每组数据为一行一个整数n(小于等于1000)，为数组成员数,如果大于1000，则对a[999]进行计算。
+```
+
+##### **输出描述:**
+
+```
+一行输出最后一个被删掉的数的原始下标位置。
+```
+
+##### **测试用例**
+
+```
+Input:
+8
+Output:
+6
+```
+
+**方法一**
+
+ArrayList直接删除。
+
+```java
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if(n > 1000){
+                n = 999;
+            }
+            List<Integer> list = new ArrayList<Integer>();
+            for(int i = 0;i < n;i++){
+                list.add(i);
+            }
+            int i = 0;
+            while(list.size() > 1){
+                i = (i + 2) %list.size();
+                list.remove(i);
+            }
+            System.out.println(list.get(0));
+        }
+    }
+}
+```
+
+**方法二**
+
+约瑟夫环递推公式。f[n]=(f[n-1]+m)%n，本题对应的m=3。
+
+```java
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if(n > 1000){
+                n = 999;
+            }
+            int last = dfs(n);
+            System.out.println(last);
+        }
+    }
+    public static int dfs(int n){
+        if(n == 1){
+            return 0;
+        }else{
+            return (dfs(n - 1) + 3) % n;
+        }
+    }
+}
+```
+
+或者
+
+```java
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            int dp = 0;
+            for(int i = 2; i <= n; i++){
+                dp = (dp + 3) % i;
+            }
+            System.out.println(dp);
+        }
+    }
+}
+```
+
+#### 8.字符集合
+
+输入一个字符串，求出该字符串包含的字符集合。
+
+##### **输入描述:**
+
+```
+每组数据输入一个字符串，字符串最大长度为100，且只包含字母，不可能为空串，区分大小写。
+```
+
+##### **输出描述:**
+
+```
+每组数据一行，按字符串原有的字符顺序，输出字符集合，即重复出现并靠后的字母不输出。
+```
+
+##### **测试用例**
+
+```
+Input:
+abcqweracb
+
+Output:
+abcqwer
+```
+
+**方法**
+
+哈希去重。
+
+**代码**
+
+```java
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String s = sc.next();
+            int[] a = new int['z' + 1];
+            for (int i = 0; i < s.length(); i++) {
+                a[s.charAt(i)]++;
+                if (a[s.charAt(i)] == 1) {
+                    System.out.print(s.charAt(i));
+                }
+            }
+            System.out.printf("\n");
+        }
+        sc.close();
+    }
+}
+```
+
+#### 9.数独
+
+数独是一个非常有名的游戏。整个是一个9X9的大宫格，其中又被划分成9个3X3的小宫格。要求在每个小格中放入1-9中的某个数字。要求是：每行、每列、每个小宫格中数字不能重复。 现要求用计算机求解数独。
+
+##### **输入描述:**
+
+```
+输入9行，每行为空格隔开的9个数字，为0的地方就是需要填充的数字。
+```
+
+##### **输出描述:**
+
+```
+输出九行，每行九个空格隔开的数字，为解出的答案。
+```
+
+**测试用例**
+
+```
+Input:
+0 9 0 0 0 0 0 6 0
+8 0 1 0 0 0 5 0 9
+0 5 0 3 0 4 0 7 0
+0 0 8 0 7 0 9 0 0
+0 0 0 9 0 8 0 0 0
+0 0 6 0 2 0 7 0 0
+0 8 0 7 0 5 0 4 0
+2 0 5 0 0 0 8 0 7
+0 6 0 0 0 0 0 9 0
+
+Output:
+7 9 3 8 5 1 4 6 2
+8 4 1 2 6 7 5 3 9
+6 5 2 3 9 4 1 7 8
+3 2 8 4 7 6 9 5 1
+5 7 4 9 1 8 6 2 3
+9 1 6 5 2 3 7 8 4
+1 8 9 7 3 5 2 4 6
+2 3 5 6 4 9 8 1 7
+4 6 7 1 8 2 3 9 5
+```
+
+**代码**
+
+```java
+import java.util.*;
+public class Main{
+    public static int[][] a = new int[9][9];;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        dfs(a);
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (j == 8) {
+                    System.out.println(a[i][j]);
+                } else {
+                    System.out.print(a[i][j] + " ");
+                }
+            }
+        }
+        sc.close();
+    }
+
+    public static boolean dfs(int[][] a) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (a[i][j] == 0) {
+                    for (int k = 1; k <= 9; k++) {
+                        if (isValid(i, j, a, k)) {
+                            a[i][j] = k;
+                            if (dfs(a)) {
+                                return true;
+                            } else {
+                                a[i][j] = 0;
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean isValid(int row, int col, int[][] a, int target) {
+        for (int i = 0; i < 9; i++) {
+            if (a[row][i] != 0 && a[row][i] == target) {
+                return false;
+            }
+            if (a[i][col] != 0 && a[i][col] == target) {
+                return false;
+            }
+            //关键部分，判断在九宫格中是否满足条件
+            int x = (row / 3) * 3 + i / 3;
+            int y = (col / 3) * 3 + i % 3;
+            if (a[x][y] != 0 && a[x][y] == target) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
