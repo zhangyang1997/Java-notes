@@ -1,9 +1,9 @@
 #### IDEA常用快捷键
 
-+ 1.执行(run) Ctrl+Shift+F10
++ **1.执行(run) Shift+F10**
 + 2.提示补全(Code Completion) Alt+/ 
-+ 3.单行注释 Ctrl+/
-+ 4.多行注释 Ctrl+Shift+/
++ **3.单行注释 Ctrl+/**
++ **4.多行注释 Ctrl+Shift+/**
 + 5.向下复制一行(Duplicate Line) Ctrl+D
 + 6.删除一行或者选中行(Delete Line) Ctrl+Y
 + 7.向下移动行(Move Statement Down) Crtl+Shift+下
@@ -36,7 +36,7 @@
 + 34.打开代码所在硬盘文件夹(show in explorer) Ctrl+Shift+X
 + 35.生成try-catch(surround with) Ctrl+Alt+T
 + 36.局部变量抽取为成员变量(introduce field) Ctrl+Alt+F
-+ 37.查找/替换(当前) Ctrl+R
++ **37.查找/替换(当前) Ctrl+R**
 + 38.查找(全局) Ctrl+Shift+F
 + 39.查找文件   Double Shift已被我禁用
 + 40.查看类的继承结构图(show UML Diagram) Ctrl+Alt+Shift+U

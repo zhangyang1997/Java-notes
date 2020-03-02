@@ -21,3 +21,10 @@
   + 每个类只需要关注自己的业务逻辑。
   + 容易修改依赖关系。
 
+**2.applicationContext.xml**
+
++ applicationContext是应用环境
+
++ xmlns是xml namespace，xml命名空间。
++ xmlns:xsi 是xml schema instance，xml模式实例。
++ xsi:schemaLocation，xml模式实例的位置，是xsi的属性。
