@@ -1,0 +1,12 @@
+git命令
+1.git config --global user.name "Zhang Yang"
+2.git config --global user.email "87896052@qq.com"
+3.git pull
+3.git add .
+4.git commit -m "message"
+5.git push -u origin master
+6.git push origin master
+7.git push -f　强制push
+7.ssh-keygen -t rsa -C"87896052@qq.com"
+8.git remote add orign [ssh/http]
+9.git cline[ssh/http]

@@ -1,0 +1,25 @@
+linux命令
+1.切换目录		cd [dirname]
+  返回上级目录		cd ..
+2.查看当前目录的文件	ls
+3.查看当前工作目录路径	pwd
+4.在当前目录创建文件夹	mkdir [foldername]
+5.删除当前目录的文件	rm [filename]
+6.删除当前目录的文件夹	rmdir [foldername]
+7.文件重命名		mv [oldname] [newname]
+8.移动文件		mv [filename] [dirname]
+9.复制文件		cp [filename] [dirname]
+10.显示文件内容		cat [filename]
+11.在当前目录创建文件	cat > [filename]
+12.每一秒查看显卡信息	watch -n 1 nvidia-smi
+13.查看进程pid列表	ps -a
+14.杀死进程		kill [pid]
+15.加权限		sudo chmod 777 [name]
+16.压缩包解压		tar xzf name.tar.gz
+17.授予权限		sudo chown -R [dirname]
+
+linux快捷键
+1.清空屏幕		Ctrl+L
+2.清空当前行		Ctrl+U
+3.复制			Ctrl+Shift+C
+4.粘贴			Ctrl+Shift+V

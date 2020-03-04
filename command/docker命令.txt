@@ -1,0 +1,5 @@
+docker命令
+sudo service docker start
+sudo docker run -it [name]
+sudo docker ps
+sudo docker exec -it 775c7c9ee1e1 /bin/bash
