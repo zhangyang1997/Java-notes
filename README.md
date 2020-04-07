@@ -1,9 +1,4 @@
-**OJ记录**
-
-+ 剑指offer
-+ 华为
-
-**使用JAVA刷OJ的说明**
+**1.使用JAVA刷OJ的说明**
 
 + 形式
 
@@ -27,3 +22,53 @@
   + `System.out.println()`
   + `System.out.print()`
   + `System.out.printf()`
+
+**2.Map基本用法**
+
++ TreeMap是有序map，HashMap是无序map。
+
++ Map基本用法
+
+  + 创建map对象``Map<keytype,valuetype> map=new XXXMap<>()``
+
+  + 插入元素`map.put(key,value)`
+
+  + 删除元素`map.remove(key)`或者`map.remove(key,value)`
+
+  + 根据key查询元素`map.get(key)`
+
+  + 修改元素`map.replace(key,value)`
+
+  + 判断元素是否存在`map.containKey(key)`或者`map.containValue(value)`
+
+  + 增强for循环遍历
+
+  + ```java
+    for (String key : map.keySet()) {
+        System.out.println(key + " ：" + map.get(key));
+    }
+    ```
+
+  + ```java
+    for (Map.Entry<String, String> entry : map.entrySet()) {
+        System.out.println(entry.getKey() + " ：" + entry.getValue());
+    }
+    ```
+
+  + 迭代器遍历
+
+  + ```java
+    Iterator<String> iterator = map.keySet().iterator();
+    while (iterator.hasNext()) {
+        String key = iterator.next();
+        System.out.println(key + "　：" + map.get(key));
+    }
+    ```
+
+  + ```java
+    Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+    while (iterator.hasNext()) {
+        Map.Entry<String, String> entry = iterator.next();
+        System.out.println(entry.getKey() + "　：" + entry.getValue());
+    }
+    ```
