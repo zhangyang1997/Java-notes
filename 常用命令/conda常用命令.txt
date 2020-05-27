@@ -1,0 +1,7 @@
+1.查看环境列表 conda env list
+2.创建环境 conda create -n [name] python=?
+3.进入环境 conda activate [name]
+4.退出环境 conda deactivate
+5.删除环境 conda remove -n [name] --all
+6.查看当前环境下的所有包 conda list
+7.在当环境下安装包 conda install [name]
